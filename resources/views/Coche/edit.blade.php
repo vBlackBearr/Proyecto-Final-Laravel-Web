@@ -3,13 +3,12 @@
 
 <head>
     <meta charset="UTF-8">
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Editar Coche</title>
+    @include('template.encabezado')
 </head>
 
 <body>
+    @include('template.navbar')
     <h1>Editar Coche</h1>
     {!! Form::open(['method' => 'PATCH', 'url' => 'Coche/' . $coche->matricula]) !!}
     {!! Form::label('color', 'Color del coche') !!}
@@ -89,3 +88,4 @@
 </body>
 
 </html>
+

@@ -3,25 +3,48 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Coche</title>
+    <title>Detalles del Coche</title>
+    @include('template.encabezado')
 </head>
 
 <body>
+    @include('template.navbar')
     <h1>Detalles del Coche</h1>
-    <br />
-    <h2>Matricula: {!! $coche->matricula !!}</h2>
-    <h2>Modelo: {!! $coche->modelo !!}</h2>
-    <h2>Marca: {!! $coche->marca !!}</h2>
-    <h2>Color: {!! $coche->color !!}</h2>
-    <h2>Precio: {!! $coche->precio !!}</h2>
-    @if ($coche->tipo == 1)
-        <h2>Unidades: {!! $cocheNuevo->unidades !!}</h2>
-    @else
-        <h2>Kilometraje: {!! $cocheUsado->kilometraje !!}</h2>
-    @endif
-    <a href="{!! asset('Coche') !!}">Regresar a Coches</a>
+    <table class="table table-bordered">
+        <tr>
+            <th>Matrícula</th>
+            <td>{{ $coche->matricula }}</td>
+        </tr>
+        <tr>
+            <th>Modelo</th>
+            <td>{{ $coche->modelo }}</td>
+        </tr>
+        <tr>
+            <th>Marca</th>
+            <td>{{ $coche->marca }}</td>
+        </tr>
+        <tr>
+            <th>Color</th>
+            <td>{{ $coche->color }}</td>
+        </tr>
+        <tr>
+            <th>Precio</th>
+            <td>{{ $coche->precio }}</td>
+        </tr>
+        @if ($coche->tipo == 1)
+        <tr>
+            <th>Unidades</th>
+            <td>{{ $cocheNuevo->unidades }}</td>
+        </tr>
+        @else
+        <tr>
+            <th>Kilometraje</th>
+            <td>{{ $cocheUsado->kilometraje }}</td>
+        </tr>
+        @endif
+    </table>
+    <a href="{{ route('Coche.index') }}" class="btn btn-primary">Regresar a la lista de Coches</a>
 </body>
 
 </html>
+

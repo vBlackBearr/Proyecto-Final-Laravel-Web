@@ -38,10 +38,10 @@
                             <td>{!! $coche->color !!}</td>
                             <td>{!! $coche->precio !!}</td>
                             <td>
-                                <a href="{!! 'coches/' . $coche->id !!}">Detalle</a>
-                                <a href="{!! 'coches/' . $coche->id . '/edit' !!}">Editar</a>
+                                <a href="{!! 'Coche/' . $coche->matricula !!}">Detalle</a>
+                                <a href="{!! 'Coche/' . $coche->matricula . '/edit' !!}">Editar</a>
 
-                                {!! Form::open(['method' => 'DELETE', 'url' => '/coches/' . $coche->id]) !!}
+                                {!! Form::open(['method' => 'DELETE', 'url' => '/Coche/' . $coche->matricula]) !!}
                                 {!! Form::submit('Eliminar') !!}
                                 {!! Form::close() !!}
                             </td>

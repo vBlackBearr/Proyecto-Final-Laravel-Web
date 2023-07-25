@@ -1,3 +1,5 @@
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -12,6 +14,7 @@
 <body>
     @include('template.navbar')
     <h1>Crear Coche</h1>
+
 
     {!! Form::open(['url' => '/Coche']) !!}
     {!! Form::label('color', 'Color del coche') !!}
@@ -77,7 +80,6 @@
         });
     </script>
 
-
     <br /><br />
 
     {!! Form::submit('Guardar Coche') !!}
@@ -86,4 +88,3 @@
 </body>
 
 </html>
-
