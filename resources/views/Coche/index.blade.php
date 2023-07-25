@@ -1,41 +1,58 @@
-<!DOCTYPE html>
+<<!DOCTYPE html>
 <html lang="en">
 
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Coches</title>
+    <title>Ver Coches</title>
+    @include('template.encabezado')
 </head>
 
 <body>
-    <h1>Lista de Coches</h1>
-    <a href="Coche/create">Insertar Coche</a>
-    <table>
-        <tr>
-            <th>Matricula</th>
-            <th>Modelo</th>
-            <th>Marca</th>
-            <th>Color</th>
-            <th>Precio</th>
-        </tr>
-        @foreach ($coches as $coch)
-            <tr>
-                <td>{!! $coch->matricula !!}</td>
-                <td>{!! $coch->modelo !!}</td>
-                <td>{!! $coch->marca !!}</td>
-                <td>{!! $coch->color !!}</td>
-                <td>{!! $coch->precio !!}</td>
-                <td>
-                    <a href="{!! 'Coche/' . $coch->matricula !!}">Detalles</a>
-                    <a href="{!! 'Coche/' . $coch->matricula . '/edit' !!}">Editar</a>
-                    {!! Form::open(['method' => 'DELETE', 'url' => 'Coche/' . $coch->matricula]) !!}
-                    {!! Form::submit('Eliminar') !!}
-                    {!! Form::close() !!}
-                </td>
-            </tr>
-        @endforeach
-    </table>
+    <div class="page">
+        @include('template.navbar')
+        <br>
+        <h1>Listado de Coches</h1>
+        <div class="py-3" style="position: relative; text-align: right; padding-right: 1cm;">
+            <button type="button" class="btn btn-primary btn-lg" style="align" onclick="location.href='Coche/create'">Crear Coche</button>
+        </div>
+        <div class="mx-5 mb-5">
+            <table class="table table-striped align-middle">
+                <thead class="table-dark">
+                    <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Matricula</th>
+                        <th scope="col">Modelo</th>
+                        <th scope="col">Marca</th>
+                        <th scope="col">Color</th>
+                        <th scope="col">Precio</th>
+                        <th scope="col">Acciones</th>
+                    </tr>
+                </thead>
+                @foreach ($coches as $coche)
+                    <tbody class="table-group-divider">
+                        <tr>
+                            <td>{!! $coche->id !!}</td>
+                            <td>{!! $coche->matricula !!}</td>
+                            <td>{!! $coche->modelo !!}</td>
+                            <td>{!! $coche->marca !!}</td>
+                            <td>{!! $coche->color !!}</td>
+                            <td>{!! $coche->precio !!}</td>
+                            <td>
+                                <a href="{!! 'coches/' . $coche->id !!}">Detalle</a>
+                                <a href="{!! 'coches/' . $coche->id . '/edit' !!}">Editar</a>
+
+                                {!! Form::open(['method' => 'DELETE', 'url' => '/coches/' . $coche->id]) !!}
+                                {!! Form::submit('Eliminar') !!}
+                                {!! Form::close() !!}
+                            </td>
+                        </tr>
+                    </tbody>
+                @endforeach
+            </table>
+        </div>
+        @include('template.pie')
+        <br />
+    </div>
 </body>
 
 </html>

@@ -3,15 +3,16 @@
 
 <head>
     <meta charset="UTF-8">
+    <title>Crear Coche</title>
+    @include('template.encabezado')
     <!-- Agrega esto en la sección <head> o al final del <body> -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Insertar Coche</title>
 </head>
 
 <body>
-    <h1>Insertar Coche</h1>
+    @include('template.navbar')
+    <h1>Crear Coche</h1>
+
     {!! Form::open(['url' => '/Coche']) !!}
     {!! Form::label('color', 'Color del coche') !!}
     {!! Form::text('color', null, ['placegholder' => 'Ingresa el color']) !!}
@@ -81,6 +82,8 @@
 
     {!! Form::submit('Guardar Coche') !!}
     {!! Form::close() !!}
+
 </body>
 
 </html>
+

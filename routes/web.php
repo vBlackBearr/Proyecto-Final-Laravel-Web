@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\coche_Controller;
 use App\Http\Controllers\Reparaciones_Controller;
+use App\Http\Controllers\mecanicosController;
 
 /*
 |--------------------------------------------------------------------------
@@ -17,7 +18,10 @@ use App\Http\Controllers\Reparaciones_Controller;
 
 Route::resource('Coche', coche_Controller::class);
 Route::resource('Reparaciones', Reparaciones_Controller::class);
+Route::resource('mecanico', mecanicosController::class);
+//Route::get('mecanicodelete/{id?}',[mecanicosController::class, 'destroy']);
+//Route::get('mecanicoedit/{id?}',[mecanicosController::class, 'update']);
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('template.master');
 });
