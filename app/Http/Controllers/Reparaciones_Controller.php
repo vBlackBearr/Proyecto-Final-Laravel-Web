@@ -24,7 +24,7 @@ class Reparaciones_Controller extends Controller
         return redirect('/Reparaciones');
     }
     public function show(string $matricula)
-    {
+    {   
         $coche = Coche::where('matricula', $matricula)->first();
         return view('Coche.read')->with('coche', $coche);
     }
